@@ -1,0 +1,16 @@
+pip==22.3.1
+asgiref==3.6.0
+Django==4.2.7
+drf_yasg==1.21.7
+djangorestframework==3.14.0
+django-rest-authtoken
+django-environ==0.11.2
+psycopg2-binary==2.9.9
+wheel==0.38.4
+dj-database-url==2.1.0
+gunicorn==21.2.0
+mysqlclient==2.2.4
+django-mysql==4.13.0
+whitenoise==6.6.0
+requests
+django-cors-headers==4.3.1

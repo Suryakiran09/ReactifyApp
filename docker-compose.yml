@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ./rentify-frontend
+      dockerfile: Dockerfile
+
+    ports:
+      - '3000:3000'
+
+    volumes:
+      - ./rentify-frontend:/rentify-frontend
+
+    depends_on:
+      - backend
+
+  backend: 
+    build: 
+      context: ./rentify-backend
+      dockerfile: Dockerfile
+
+    ports:
+      - '8000:8000'
+
+    volumes:
+      - ./rentify-backend:/rentify-backend
