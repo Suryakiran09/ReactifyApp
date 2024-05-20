@@ -223,7 +223,7 @@ The application will now be accessible at `http://localhost:3000` for the fronte
 Backend Deployment URL
 
 ```shell
-https://github.com/Suryakiran09/RentifyApp.git
+https://rentifyapp.onrender.com/
 ```
 
 #### `The code I used for deployment is updated with backend hosted application url but this file which I sent as submission contains the localhost url which can run without any waiting but if the frontend application isn't loading check the logs in docker it may be taking time to start the application.`
