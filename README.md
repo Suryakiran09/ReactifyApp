@@ -225,8 +225,9 @@ Backend Deployment URL
 ```shell
 https://rentifyapp.onrender.com/
 ```
+### Details to know for Assignment Validation
 
-### `The code I used for deployment is updated with backend hosted application url but this file which I sent as submission contains the localhost url which can run without any waiting but if the frontend application isn't loading check the logs in docker it may be taking time to start the application.`
+### `The code I used for deployment is updated with backend hosted application url but this file which I sent as submission contains the localhost url which can run without any waiting and without using deployment url but if the frontend application isn't loading check the logs in docker it may be taking time to start the application.`
 
 #### Frontend is taking time to load in docker But it will load
 
