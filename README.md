@@ -15,6 +15,7 @@
   - [Docker Installation](#docker-installation)
   - [Docker Usage](#starting-docker-container)
 -  [Working Images](#images)
+-  [Deployment Links & Steps to Follow](#deployment-details)
 
 
 ## Overview:
@@ -109,7 +110,7 @@ To install and run the application locally, follow these steps:
 
 2. **Navigate to the project directory:**
     ```shell
-    cd rentify
+    cd RentifyApp
     ```
 
 3. **Install frontend dependencies:**
@@ -215,8 +216,15 @@ The application will now be accessible at `http://localhost:3000` for the fronte
 
 ![alt text](/images/image10.png)
 
+## Deployment Details
 
 #### `The application I hosted in the internet is hosted in a free tier so it takes time to load as it will go into sleep if the application is idle please open the backend application first and wait some 30 seconds to load and then use the frontend application`
+
+Backend Deployment URL
+
+```shell
+https://github.com/Suryakiran09/RentifyApp.git
+```
 
 #### `The code I used for deployment is updated with backend hosted application url but this file which I sent as submission contains the localhost url which can run without any waiting but if the frontend application isn't loading check the logs in docker it may be taking time to start the application.`
 

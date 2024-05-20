@@ -18,7 +18,7 @@ const PropertyForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:8000/properties/',
+        'https://rentifyapp.onrender.com/properties/',
         {
           place,
           area,

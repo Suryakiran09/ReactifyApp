@@ -22,7 +22,7 @@ const PropertyDetail = ({ userType }) => {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/properties/${id}/`, {
+        const response = await axios.get(`https://rentifyapp.onrender.com/properties/${id}/`, {
           headers: {
             Authorization: `Token ${localStorage.getItem('token')}`,
           },
@@ -48,7 +48,7 @@ const PropertyDetail = ({ userType }) => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:8000/properties/${id}/`, formData, {
+      await axios.put(`https://rentifyapp.onrender.com/properties/${id}/`, formData, {
         headers: {
           Authorization: `Token ${localStorage.getItem('token')}`,
         },
@@ -63,7 +63,7 @@ const PropertyDetail = ({ userType }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/properties/${id}/`, {
+      await axios.delete(`https://rentifyapp.onrender.com/properties/${id}/`, {
         headers: {
           Authorization: `Token ${localStorage.getItem('token')}`,
         },

@@ -41,6 +41,7 @@ const Home = () => {
           Register as Buyer
         </Button>
       </div>
+      <p>Please Open Backend Website it takes upto 30 seconds to start if idle as it is a free instance <a href="https://rentifyapp.onrender.com/" target="_blank">Link</a></p>
     </Container>
   );
 };

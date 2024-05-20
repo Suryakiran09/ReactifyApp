@@ -10,7 +10,7 @@ const PropertyCard = ({ property, userType }) => {
 
   const handleLike = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/likes/', { id: property.id }, {
+      const response = await axios.post('https://rentifyapp.onrender.com/likes/', { id: property.id }, {
         headers: { Authorization: `Token ${localStorage.getItem('token')}` },
       });
       setLiked(true);
@@ -22,7 +22,7 @@ const PropertyCard = ({ property, userType }) => {
 
   const handleInterested = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/interested/', { property: property.id }, {
+      const response = await axios.post('https://rentifyapp.onrender.com/interested/', { property: property.id }, {
         headers: { Authorization: `Token ${localStorage.getItem('token')}` },
       });
       setShowAlert(true);

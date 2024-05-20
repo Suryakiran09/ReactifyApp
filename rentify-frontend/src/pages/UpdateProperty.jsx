@@ -21,7 +21,7 @@ const UpdateProperty = () => {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/properties/${id}/`);
+        const response = await axios.get(`https://rentifyapp.onrender.com/properties/${id}/`);
         setProperty(response.data);
       } catch (error) {
         setError(error.response ? error.response.data : "An error occurred");
@@ -44,7 +44,7 @@ const UpdateProperty = () => {
     e.preventDefault();
     try {
       await axios.put(
-        `http://localhost:8000/properties/${id}/`,
+        `https://rentifyapp.onrender.com/properties/${id}/`,
         property,
         {
           headers: {

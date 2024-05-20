@@ -60,7 +60,7 @@ const Register = () => {
     setValidationError(null);
 
     try {
-      const response = await axios.post('http://localhost:8000/register/', {
+      const response = await axios.post('https://rentifyapp.onrender.com/register/', {
         first_name: firstName,
         last_name: lastName,
         email,

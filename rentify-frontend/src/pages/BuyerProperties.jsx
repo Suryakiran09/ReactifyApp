@@ -18,7 +18,7 @@ const BuyerProperties = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/properties/', {
+        const response = await axios.get('https://rentifyapp.onrender.com/properties/', {
           headers: {
             Authorization: `Token ${localStorage.getItem('token')}`,
           },

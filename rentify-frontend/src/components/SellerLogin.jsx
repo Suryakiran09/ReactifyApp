@@ -12,7 +12,7 @@ const SellerLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/login/', { email, password });
+      const response = await axios.post('https://rentifyapp.onrender.com/login/', { email, password });
       const { token, user } = response.data;
 
       if(user.is_buyer === true){
