@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Card, CardContent, CardActions, Typography, Button, Alert, Snackbar } from '@mui/material';
+import { Card, CardContent, CardActions, Typography, Button, Alert, Snackbar, Collapse } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const PropertyCard = ({ property, userType }) => {
   const [liked, setLiked] = useState(property.liked_users.some((user) => user.user === JSON.parse(localStorage.getItem('user')).id));
   const [showAlert, setShowAlert] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  const [emailAlert, setEmailAlert] = useState(false);
   const navigate = useNavigate();
 
   const handleLike = async () => {
@@ -25,13 +27,17 @@ const PropertyCard = ({ property, userType }) => {
       const response = await axios.post('https://rentifyapp.onrender.com/interested/', { property: property.id }, {
         headers: { Authorization: `Token ${localStorage.getItem('token')}` },
       });
-      setShowAlert(true);
+      setEmailAlert(true);
     } catch (error) {
-      setShowAlert(true);
+      setEmailAlert(true);
     }
   };
 
   const handleDetailsClick = () => {
+    setShowDetails(!showDetails);
+  };
+
+  const handleDetailsNavigate = () => {
     navigate(`/properties/${property.id}`);
   };
 
@@ -53,6 +59,11 @@ const PropertyCard = ({ property, userType }) => {
             <Typography variant="body2">Colleges nearby: {property.colleges_nearby}</Typography>
           )}
           <Typography variant="body2">Likes: {property.likes}</Typography>
+          <Collapse in={showDetails}>
+            <Typography variant="body2">Seller: {property.seller.first_name} {property.seller.last_name}</Typography>
+            <Typography variant="body2">Email: {property.seller.email}</Typography>
+            <Typography variant="body2">Phone: {property.seller.phone_number}</Typography>
+          </Collapse>
         </CardContent>
         <CardActions>
           {userType === 'buyer' && (
@@ -63,16 +74,16 @@ const PropertyCard = ({ property, userType }) => {
               <Button size="small" onClick={handleInterested}>
                 Interested
               </Button>
-            </>
-          )}
-          {userType === 'seller' && (
-            <>
               <Button size="small" onClick={handleDetailsClick}>
-              View Details
+                {showDetails ? 'Hide Details' : 'Show Details'}
               </Button>
             </>
           )}
-          
+          {userType === 'seller' && (
+            <Button size="small" onClick={handleDetailsNavigate}>
+              View Details
+            </Button>
+          )}
         </CardActions>
       </Card>
       <Snackbar
@@ -82,7 +93,17 @@ const PropertyCard = ({ property, userType }) => {
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
         <Alert onClose={() => setShowAlert(false)} severity="success">
-          Success!
+          Property Liked!
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={emailAlert}
+        autoHideDuration={3000}
+        onClose={() => setEmailAlert(false)}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert onClose={() => setEmailAlert(false)} severity="success">
+          Email Sent!
         </Alert>
       </Snackbar>
     </>
