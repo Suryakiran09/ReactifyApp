@@ -23,7 +23,7 @@ class LikesSerializer(serializers.ModelSerializer):
         return obj.user.id
     
 class PropertySerializer(serializers.ModelSerializer):
-    seller = serializers.SerializerMethodField()
+    seller = UserSerializer(read_only=True)
     liked_users = LikesSerializer(many=True, read_only=True)
 
     class Meta:
@@ -36,9 +36,6 @@ class PropertySerializer(serializers.ModelSerializer):
         if not user.is_seller:
             raise serializers.ValidationError(_('Only sellers can create properties.'))
         return attrs
-
-    def get_seller(self, obj):
-        return obj.seller.email
     
 class LikeSerializer(serializers.Serializer):
     id = serializers.IntegerField(required=True)
